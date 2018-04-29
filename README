@@ -1,0 +1,26 @@
+This is a one-time use script to fix blog domain name change in my old Blogger 
+blog for those internal links, that is one of post linking to another of the 
+same Blogger blog.
+
+Basically, in fix.py
+
+    newh = html.replace('***FROM***', '***TO***')
+
+It uses Blogger export file to get the posts and pages HTML and update via 
+Blogger API, some codes are from my other projects b.py [1] and bea [2].
+
+It should be used as follows:
+
+    # ./fix.py --client-id $CLIEND_ID --client-secret $CLIENT_SECRET \
+      blog-MM-DD-YYYY.xml
+
+Two files are created:
+
+* blog-MM-DD-YYYY.xml.cache: cache file in JSON
+* fix.dat: authenticated credential for Blogger API
+
+The code is written in Python 3 and licensed under the MIT License.
+
+
+[1] https://bitbucket.org/lbarchive/b.py
+[2] https://bitbucket.org/lbarchive/bea
